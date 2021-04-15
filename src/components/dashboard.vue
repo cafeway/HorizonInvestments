@@ -423,12 +423,6 @@ export default {
       user: 'user'
     })
   },
-  created () {
-    const script = document.createElement('script')
-    script.src = 'https://checkout.flutterwave.com/v3.js'
-    document.getElementsByTagName('head')[0].appendChild(script)
-    this.connected = window.navigator.onLine
-  },
   updated: function () {
     window.location.href('/dash')
   },
@@ -439,7 +433,7 @@ export default {
     this.transaction_type = ''
     this.transaction_status = 1
     let db = firebase.firestore()
-    db.collection('users').doc(this.user.data.email).collection('invitees').get().then(snapshot => {
+    db.collection('users').doc(firebase.auth().currentUser.email).collection('invitees').get().then(snapshot => {
       this.refferals = snapshot.size
     })
     db.collection('users').doc(this.user.data.email).collection('investments').get().then(snapshot => {

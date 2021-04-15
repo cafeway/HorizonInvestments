@@ -442,7 +442,7 @@ export default {
         this.bids.push(doc.data())
       })
     })
-    firebase.firestore().collection('users').doc(firebase.auth().currentUser.email).get().then(snapshot => {
+    db.collection('users').doc(this.user.data.email).get().then(snapshot => {
       let data = snapshot.data()
       this.amount_sent = data.amount_sent
       this.amount_received = data.amount_received

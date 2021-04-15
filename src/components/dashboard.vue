@@ -416,7 +416,7 @@ export default {
       now: 0,
       doc_ref: '',
       connected: true,
-      displayName: '',
+      displayName: ''
     }
   },
   computed: {

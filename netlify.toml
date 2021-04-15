@@ -1,0 +1,14 @@
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+[[redirects]]
+  from = "/"
+  to = "/dash"
+  status = 200
+  edge_handler = "filterRequests"
+  [[redirects]]
+  from = "/"
+  to = "/register"
+  status = 200
+  edge_handler = "filterRequests"

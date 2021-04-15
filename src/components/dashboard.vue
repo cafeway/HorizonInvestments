@@ -423,6 +423,7 @@ export default {
       user: 'user'
     })
   },
+
   updated: function () {
     window.location.href('/dash')
   },

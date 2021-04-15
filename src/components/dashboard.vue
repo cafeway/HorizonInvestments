@@ -424,10 +424,6 @@ export default {
       user: 'user'
     })
   },
-
-  updated: function () {
-    window.location.href('/dash')
-  },
   mounted: function () {
     this.Investment = 0
     this.invitelink = ''
@@ -435,18 +431,18 @@ export default {
     this.transaction_type = ''
     this.transaction_status = 1
     let db = firebase.firestore()
-    db.collection('users').doc(firebase.auth().currentUser.email).collection('invitees').get().then(snapshot => {
+    db.collection('users').doc(this.user.data.email).collection('invitees').get().then(snapshot => {
       this.refferals = snapshot.size
     })
-    db.collection('users').doc(firebase.auth().currentUser.email).collection('investments').get().then(snapshot => {
+    db.collection('users').doc(this.user.data.email).collection('investments').get().then(snapshot => {
       this.total_bids = snapshot.size
     })
-    db.collection('users').doc(firebase.auth().currentUser.email).collection('investments').get().then(snapshot => {
+    db.collection('users').doc(this.user.data.email).collection('investments').get().then(snapshot => {
       snapshot.forEach(doc => {
         this.bids.push(doc.data())
       })
     })
-    firebase.firestore().collection('users').doc(firebase.auth().currentUser.email).get().then(snapshot => {
+    firebase.firestore().collection('users').doc(this.user.data.email).get().then(snapshot => {
       let data = snapshot.data()
       this.amount_sent = data.amount_sent
       this.amount_received = data.amount_received

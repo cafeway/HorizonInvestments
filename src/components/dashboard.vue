@@ -12,7 +12,7 @@
                <b-list-group style="max-width: 300px;">
                  <b-list-group-item class="d-flex align-items-center">
                     <b-avatar class="mr-3"></b-avatar>
-                 <span class="mr-auto"> Welcome Back {{this.user.data.displayName}}!</span>
+                 <span class="mr-auto"> Welcome Back {{this.displayName}}!</span>
                 <b-badge></b-badge>
                </b-list-group-item>
                </b-list-group>
@@ -415,7 +415,8 @@ export default {
       bids: [],
       now: 0,
       doc_ref: '',
-      connected: true
+      connected: true,
+      displayName: '',
     }
   },
   computed: {
@@ -451,6 +452,7 @@ export default {
       this.amount_received = data.amount_received
       this.wallet_balance = data.wallet_balance
       this.activated = data.activated
+      this.displayName = data.username
     })
   },
   methods: {
@@ -598,7 +600,7 @@ export default {
     },
     logout: function () {
       firebase.auth().signOut()
-      this.$router.push('/login')
+      this.$router.push('/')
     },
     genaratelink () {
       var urlgenerator = require('urlgenerator')

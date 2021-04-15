@@ -12,7 +12,7 @@
                <b-list-group style="max-width: 300px;">
                  <b-list-group-item class="d-flex align-items-center">
                     <b-avatar class="mr-3"></b-avatar>
-                 <span class="mr-auto"> Welcome Back {{this.displayName}}!</span>
+                 <span class="mr-auto"> Welcome Back  {{this.user.data.displayName}}!</span>
                 <b-badge></b-badge>
                </b-list-group-item>
                </b-list-group>
@@ -415,14 +415,22 @@ export default {
       bids: [],
       now: 0,
       doc_ref: '',
-      connected: true,
-      displayName: ''
+      connected: true
     }
   },
   computed: {
     ...mapGetters({
       user: 'user'
     })
+  },
+  created () {
+    const script = document.createElement('script')
+    script.src = 'https://checkout.flutterwave.com/v3.js'
+    document.getElementsByTagName('head')[0].appendChild(script)
+    this.connected = window.navigator.onLine
+  },
+  updated: function () {
+    window.location.href('/dash')
   },
   mounted: function () {
     this.Investment = 0
@@ -442,13 +450,12 @@ export default {
         this.bids.push(doc.data())
       })
     })
-    db.collection('users').doc(this.user.data.email).get().then(snapshot => {
+    firebase.firestore().collection('users').doc(this.user.data.email).get().then(snapshot => {
       let data = snapshot.data()
       this.amount_sent = data.amount_sent
       this.amount_received = data.amount_received
       this.wallet_balance = data.wallet_balance
       this.activated = data.activated
-      this.displayName = data.username
     })
   },
   methods: {
@@ -596,7 +603,7 @@ export default {
     },
     logout: function () {
       firebase.auth().signOut()
-      this.$router.push('/')
+      this.$router.push('/login')
     },
     genaratelink () {
       var urlgenerator = require('urlgenerator')

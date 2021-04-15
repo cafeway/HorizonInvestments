@@ -12,7 +12,7 @@
                <b-list-group style="max-width: 300px;">
                  <b-list-group-item class="d-flex align-items-center">
                     <b-avatar class="mr-3"></b-avatar>
-                 <span class="mr-auto"> Welcome Back !</span>
+                 <span class="mr-auto"> Welcome Back {{this.user.data.displayName}}!</span>
                 <b-badge></b-badge>
                </b-list-group-item>
                </b-list-group>

@@ -5,58 +5,26 @@
   <div class="container-fluid">
   <div v-if="this.connected">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <nav class="navbar navbar-expand-lg navbar-light bg-mine">
-    <div class="container-fluid"> <a class="navbar-brand" href="#" style="color:#ffdb58;">WiseFex Investments</a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid"> <a class="navbar-brand" href="#">BITBID Investments</a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
                <b-list-group style="max-width: 300px;">
                  <b-list-group-item class="d-flex align-items-center">
                     <b-avatar class="mr-3"></b-avatar>
-                 <span class="mr-auto"> Welcome Back  {{this.user.data.displayName}}!</span>
+                 <span class="mr-auto">{{this.user.data.displayName}}</span>
                 <b-badge></b-badge>
                </b-list-group-item>
                </b-list-group>
             </ul>
             <div class="d-flex" style="padding-right:10px">
+                <div class="text-center text-secondary alert alert-primary" data-toggle="modal" data-target="#verify">
+                click to verify a payment
+           </div>
             </div>
-            <div class="d-flex" style="padding-right:10px">
-                <div class="text-center text-secondary alert"  data-toggle="modal" data-target="#exampleModal" style="background-color:#FF00FF;">
-                Reffer Downlines
-                </div>
-           </div>
-           <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <input type="text" class="form-control" id="code">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-success btn-md " @click="genaratelink">
-                  get link
-                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
-  <path d="M4.715 6.542L3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.001 1.001 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
-  <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 0 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 0 0-4.243-4.243L6.586 4.672z"/>
-</svg>
-</button>
-      </div>
-    </div>
-  </div>
-</div>
              <div class="d-flex" style="padding-right:10px">
-                <div class="text-center text-secondary alert" style="background-color:#32CD32;" @click="deposit()">
-                Deposit</div>
-           </div>
-           <div class="d-flex" style="padding-right:10px">
-                <div class="text-center text-secondary alert" style="background-color:#ffdb58;" @click="Withdraw()">
-                Withdraw
+                <div class="text-center text-secondary alert alert-success" @click="logout()">
+                Sign out
            </div>
             </div>
         </div>
@@ -114,60 +82,96 @@
 <hr>
 <div>
 <div>
-<div id="root">
-  <div class="container pt-5">
-    <div class="row align-items-stretch">
-      <div class="c-dashboardInfo col-lg-3 col-md-6">
-        <div class="wrap">
-          <h4 class="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">Portfolio Balance<svg
-              class="MuiSvgIcon-root-19" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation">
-              <path fill="none" d="M0 0h24v24H0z"></path>
-              <path
-                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z">
-              </path>
-            </svg></h4><span class="hind-font caption-12 c-dashboardInfo__count">{{this.wallet_balance}}/=</span>
-        </div>
-      </div>
-      <div class="c-dashboardInfo col-lg-3 col-md-6">
-        <div class="wrap">
-          <h4 class="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">Investment income<svg
-              class="MuiSvgIcon-root-19" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation">
-              <path fill="none" d="M0 0h24v24H0z"></path>
-              <path
-                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z">
-              </path>
-            </svg></h4><span class="hind-font caption-12 c-dashboardInfo__count">{{this.amount_received}}/=</span>
-        </div>
-      </div>
-      <div class="c-dashboardInfo col-lg-3 col-md-6">
-        <div class="wrap">
-          <h4 class="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">Downline Interest<svg
-              class="MuiSvgIcon-root-19" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation">
-              <path fill="none" d="M0 0h24v24H0z"></path>
-              <path
-                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z">
-              </path>
-            </svg></h4><span class="hind-font caption-12 c-dashboardInfo__count">{{this.refferals}}/=</span>
-        </div>
-      </div>
-      <div class="c-dashboardInfo col-lg-3 col-md-6">
-        <div class="wrap">
-          <h4 class="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">Rates<svg
-              class="MuiSvgIcon-root-19" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation">
-              <path fill="none" d="M0 0h24v24H0z"></path>
-              <path
-                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z">
-              </path>
-            </svg></h4>
-             <span
-            class="hind-font caption-12 c-dashboardInfo__subInfo">15% --- 24hrs</span>
-             <span
-            class="hind-font caption-12 c-dashboardInfo__subInfo">40% --- 48hrs</span>
+<div class="container bootstrap snippets bootdey">
+    <div class="row">
+    <div class="col-md-4">
+            <div class="widget lazur-bg p-xl">
+                <h2>Refferals</h2>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="80" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+  <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+  <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+</svg>
+                 <hr>
+                  <b><label style="font-size: 40px;">{{this.refferals}}</label></b>
+            </div>
+</div>
+<div class="col-md-4">
+            <div class="widget red-bg p-xl">
+                <h2>Amount sent</h2>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="60" height="80" fill="currentColor" class="bi bi-arrow-up-left-circle" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-5.904 2.803a.5.5 0 1 0 .707-.707L6.707 6h2.768a.5.5 0 1 0 0-1H5.5a.5.5 0 0 0-.5.5v3.975a.5.5 0 0 0 1 0V6.707l4.096 4.096z"/>
+</svg>
+                <hr>
+                <b><label style="font-size: 40px;">{{this.amount_sent}}</label></b>
+            </div>
+</div>
+<div class="col-md-4">
+            <div class="widget navy-bg p-xl">
+                <h2>Amount received</h2>
+   <svg xmlns="http://www.w3.org/2000/svg" width="60" height="80" fill="currentColor" class="bi bi-arrow-down-right-circle" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.854 5.146a.5.5 0 1 0-.708.708L9.243 9.95H6.475a.5.5 0 1 0 0 1h3.975a.5.5 0 0 0 .5-.5V6.475a.5.5 0 1 0-1 0v2.768L5.854 5.146z"/>
+</svg>
+                <hr>
+                <b><label style="font-size: 40px;">{{this.amount_received}}</label></b>
+     </div>
+</div>
+</div>
+    <div class="row">
+    <div class="col-md-4">
+            <div class="widget yellow-bg p-xl">
+                <h2>Wallet Balance</h2>
+                <ul class="list-unstyled m-t-md" style="padding-left:110px;">
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-wallet-fill" viewBox="0 0 16 16">
+  <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v2h6a.5.5 0 0 1 .5.5c0 .253.08.644.306.958.207.288.557.542 1.194.542.637 0 .987-.254 1.194-.542.226-.314.306-.705.306-.958a.5.5 0 0 1 .5-.5h6v-2A1.5 1.5 0 0 0 14.5 2h-13z"/>
+  <path d="M16 6.5h-5.551a2.678 2.678 0 0 1-.443 1.042C9.613 8.088 8.963 8.5 8 8.5c-.963 0-1.613-.412-2.006-.958A2.679 2.679 0 0 1 5.551 6.5H0v6A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-6z"/>
+</svg>
 
-        </div>
+                    </li>
+                </ul>
+                <hr>
+                <b><label style="font-size: 40px;">{{this.wallet_balance}}</label></b>
+            </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="deposit" tabindex="-1" role="dialog" aria-labelledby="deposit" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Deposit</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+  <div class="form-group">
+    <input type="text" class="form-control" id="number" required autofocus v-model="form.number" aria-describedby="emailHelp" placeholder="Enter phone number">
+  </div>
+  <div class="form-group">
+    <input type="number" required autofocus v-model="form.amount" class="form-control" id="amount" placeholder="amount">
+  </div>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" @click="deposit()">Deposit</button>
       </div>
     </div>
   </div>
+</div>
+<div class="col-md-4">
+            <div class="widget navy-bg p-xl">
+                <h2>Total Bids</h2>
+  <svg xmlns="http://www.w3.org/2000/svg" width="60" height="80" fill="currentColor" class="bi bi-wallet2" viewBox="0 0 16 16">
+  <path d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z"/>
+</svg>
+                <hr>
+                <b><label style="font-size: 40px;">{{this.total_bids}}</label></b>
+     </div>
+</div>
+
+</div>
 </div>
 </div>
 <div class="container">
@@ -175,19 +179,27 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="header-title pb-3 mt-0">Track Your Investments</h5>
+                    <h5 class="header-title pb-3 mt-0">Cheda Zako!</h5>
                     <div class="table-responsive">
                         <table class="table table-hover mb-0">
                             <thead>
                                 <tr class="align-self-center">
+                                    <th>#</th>
+                                    <th>Bid Date</th>
+                                    <th>Payment Method</th>
+                                    <th>Pay Days</th>
                                     <th>Amount</th>
-                                    <th>Status</th>
+                                    <th>Transaction Status</th>
                                     <th>Timer</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="bid in bids" :key="bid.id">
+                                    <td>{{bid.id}}</td>
+                                    <td>{{bid.date}}</td>
+                                    <td>Local Wallet</td>
+                                    <td>{{bid.period}}</td>
                                     <td>{{bid.investment}}</td>
                                     <td v-if="bid.state == 'running'"><span class="badge badge-boxed badge-soft-warning">pending</span></td>
                                     <td v-else-if="bid.state =='matured'"><span class="badge badge-boxed badge-soft-running">matured</span></td>
@@ -218,6 +230,17 @@
                     </div>
                     <!--end table-responsive-->
                     <div class="pt-3 border-top text-right">
+                    <input type="text" id="invitelink" class="form-control col-md-5" placeholder="your invite link">
+                    <button type="button" class="btn btn-danger btn-md  " data-toggle="modal" data-target="#deposit">
+  Deposit
+</button>
+                  <button type="button" class="btn btn-success btn-md " @click="genaratelink">
+                  get link
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+  <path d="M4.715 6.542L3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.001 1.001 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+  <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 0 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 0 0-4.243-4.243L6.586 4.672z"/>
+</svg>
+</button>
 <!-- Modal -->
 <div class="modal fade" id="withdraw" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -250,7 +273,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">WiseFoxes invest in Wise-fex.</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Investment today is a source of income tomorrow.</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -282,9 +305,6 @@
 </div>
 
                     <!-- <a href="#" class="text-warning">View all <i class="fa fa-eye"></i></a> -->
-                       <button class="btn btn-secondary" @click="logout()">
-                       Logout
-                       </button>
                        <button class="btn btn-secondary" data-toggle="modal" data-target="#invest">
                        Invest
                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cash" viewBox="0 0 16 16">
@@ -292,6 +312,9 @@
   <path d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z"/>
 </svg>
                        </button>
+                       <button type="button" class="btn btn-warning btn-md" data-toggle="modal" data-target="#withdraw">
+ Withdraw
+</button>
                      <!-- <button type="button" class="btn btn-warning btn-md" @click="verify_trans()">
  Withdraw
 </button> -->
@@ -304,7 +327,7 @@
 </div>
 
 <!-- Footer -->
-<footer class="bg-footer text-center text-white">
+<footer class="bg-dark text-center text-white">
   <!-- Grid container -->
   <div class="container p-4">
     <!-- Section: Social media -->
@@ -324,9 +347,21 @@
           <!--Grid column-->
 
           <!--Grid column-->
+          <div class="col-md-5 col-12">
+            <!-- Email input -->
+            <div class="form-outline form-white mb-4">
+              <input type="email" id="form5Example2" class="form-control" />
+            </div>
+          </div>
           <!--Grid column-->
 
           <!--Grid column-->
+          <div class="col-auto">
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-outline-light mb-4">
+              Holla at us!
+            </button>
+          </div>
           <!--Grid column-->
         </div>
         <!--Grid row-->
@@ -337,7 +372,7 @@
     <!-- Section: Text -->
     <section class="mb-4">
       <p>
-       All T&C's Apply
+        Invest with us to secure tomorrow!
       </p>
     </section>
     <!-- Section: Text -->
@@ -357,7 +392,8 @@
 
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    WiseFex International
+    © 2021 Copyright:
+     BitBid
   </div>
   <!-- Copyright -->
 </footer>
@@ -423,7 +459,12 @@ export default {
       user: 'user'
     })
   },
-
+  created () {
+    const script = document.createElement('script')
+    script.src = 'https://checkout.flutterwave.com/v3.js'
+    document.getElementsByTagName('head')[0].appendChild(script)
+    this.connected = window.navigator.onLine
+  },
   updated: function () {
     window.location.href('/dash')
   },
@@ -434,7 +475,7 @@ export default {
     this.transaction_type = ''
     this.transaction_status = 1
     let db = firebase.firestore()
-    db.collection('users').doc(firebase.auth().currentUser.email).collection('invitees').get().then(snapshot => {
+    db.collection('users').doc(this.user.data.email).collection('invitees').get().then(snapshot => {
       this.refferals = snapshot.size
     })
     db.collection('users').doc(this.user.data.email).collection('investments').get().then(snapshot => {
@@ -587,7 +628,6 @@ export default {
             cashed: false,
             startdate: startdateconverted,
             stopdate: maturedate
-
           })
         } else {
           this.Investment = 2
@@ -603,11 +643,11 @@ export default {
     genaratelink () {
       var urlgenerator = require('urlgenerator')
       var createURLwithParameters = urlgenerator.createURLwithParameters
-      var baseURL = 'https://wise-fex.com/#/register'
+      var baseURL = 'https://bitbidltd.com/#/register'
       var referee = firebase.auth().currentUser.uid
       var parameters = {'uid': referee}
       var finalURL = createURLwithParameters(baseURL, parameters)
-      let field = document.getElementById('code')
+      let field = document.getElementById('invitelink')
       field.value = finalURL
     },
     reload: function () {
@@ -675,74 +715,294 @@ export default {
 </script>
 <style scoped>
 @import '../assets/footer.css';
-.bg-mine {
- background-color:#4545b9;
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+        .load{
+            width: 330px;
+            height: 330px;
+            display: flex;
+            position:absolute;
+            top: 35%;
+            justify-content: center;
+            align-items: center;
+            background-color: #f35430;
+            border-radius: 50%;
+            animation: shadow 1.4s ease-in-out infinite;
+        }
+        .fingers{
+            background-color: #f7c86b;
+            width: 45px;
+            margin-right: 5px;
+            border-radius: 15px 15px 25px 25px;
+            position: relative;
+            animation: move 1.5s ease-in-out infinite;
+        }
+        .fingers:nth-child(1){
+            height: 130px;
+            top: 5px;
+            margin-left: 24px;
+        }
+        .fingers:nth-child(2){
+            height: 150px;
+            animation-delay: .1s;
+        }
+        .fingers:nth-child(3){
+            height: 170px;
+            top: -5px;
+            animation-delay: .2s;
+        }
+        .fingers:nth-child(4){
+            height: 150px;
+            animation-delay: .3s;
+        }
+        .pollex{
+            width: 60px;
+            height: 45px;
+            position: relative;
+            top: 5px;
+            background-color: #f7c86b;
+            border-radius: 5px 15px 45px 5px;
+            animation: move2 1.5s linear infinite;
+            animation-delay: .4s;
+        }
+        .nails{
+            width: 30px;
+            height: 30px;
+            border-radius: 50px 50px 20px 20px;
+            background-color: #faf5c3;
+            position: absolute;
+            bottom: 13px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .fingers::before,.fingers::after{
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 5px;
+            background-color: #e69b4c;
+            border-radius: 5px;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .fingers::before{
+            top: 20px;
+        }
+        @keyframes move{
+            0%{transform: scaleY(1) translateY(0px)}
+            20%{transform: scaleY(.8) translateY(-30px)}
+            30%{transform: scaleY(.8) translateY(-30px)}
+            40%{transform: scaleY(1) translateY(0px)}
+            100%{transform: scaleY(1) translateY(0px)}
+        }
+        @keyframes move2{
+            0%{transform: scaleY(1) translateY(0px)}
+            20%{transform: scaleY(.9) translateY(-20px)}
+            30%{transform: scaleY(.9) translateY(-20px)}
+            40%{transform: scaleY(1) translateY(0px)}
+            100%{transform: scaleY(1) translateY(0px)}
+        }
+        @keyframes shadow{
+            0%{box-shadow: 0 0 0 5px #fff}
+            100%{box-shadow: 0 0 0 20px #f35430}
+        }
+.hover {
+  animation: hover 2s alternate ease-in-out infinite;
 }
-.bg-footer {
- background-color:#BC427F;
+@keyframes hover {
+  to {
+    transform: translate(0, 0);
+  }
+  from {
+    transform: translate(0, 8px);
+  }
 }
-.c-dashboardInfo {
-  margin-bottom: 15px;
+#description {
+position: absolute;
+left: 50%;
+top: 150px;
+transform: translate(-50%, -50%);
+text-align: center;
+font-family: Raleway;
+color: white;
 }
-.c-dashboardInfo .wrap {
-  background: #ffffff;
-  box-shadow: 2px 10px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 7px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  padding: 40px 25px 20px;
-  height: 100%;
+#loadingIndicator {
+position: relative;
+height: 90px;
+width: 150px;
+top: 10px;
+left: 50%;
+transform: translate(-50%, 0%);
 }
-.c-dashboardInfo__title,
-.c-dashboardInfo__subInfo {
-  color: #6c6c6c;
-  font-size: 1.18em;
+.loadingBar {
+position: absolute;
+top: 30px;
+width: 30px;
+height: 30px;
+border-radius: 30px;
+animation: loadingAnimation 3s infinite;
 }
-.c-dashboardInfo span {
-  display: block;
+#loadingBar1 {
+background: #1e00ff;
+animation-delay: 0s;
+left: 0px;
 }
-.c-dashboardInfo__count {
-  font-weight: 600;
-  font-size: 2.5em;
-  line-height: 64px;
-  color: #323c43;
+#loadingBar2 {
+background: #ff0061;
+animation-delay: 0.2s;
+left: 40px;
 }
-.c-dashboardInfo .wrap:after {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 10px;
-  content: "";
+#loadingBar3 {
+background: #e1ff00;
+animation-delay: 0.4s;
+left: 80px;
 }
-
-.c-dashboardInfo:nth-child(1) .wrap:after {
-  background: linear-gradient(82.59deg, #00c48c 0%, #00a173 100%);
+#loadingBar4 {
+background: #00ff9e;
+animation-delay: 0.6s;
+left: 120px;
 }
-.c-dashboardInfo:nth-child(2) .wrap:after {
-  background: linear-gradient(81.67deg, #0084f4 0%, #1a4da2 100%);
+@keyframes loadingAnimation {
+0% {
+top: 30px;
 }
-.c-dashboardInfo:nth-child(3) .wrap:after {
-  background: linear-gradient(69.83deg, #0084f4 0%, #00c48c 100%);
+20% {
+top: 0px;
 }
-.c-dashboardInfo:nth-child(4) .wrap:after {
-  background: linear-gradient(81.67deg, #ff647c 0%, #1f5dc5 100%);
+50% {
+height: 30px;
+top: 30px;
+border-radius: 5px;
 }
-.c-dashboardInfo__title svg {
-  color: #d7d7d7;
-  margin-left: 5px;
+75% {
+height: 90px;
+top: 0px;
+border-radius: 30px;
 }
-.MuiSvgIcon-root-19 {
-  fill: currentColor;
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  font-size: 24px;
-  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  user-select: none;
-  flex-shrink: 0;
+100% {
+height: 30px;
+top: 30px;
 }
-
+}
+.p-xl {
+  padding: 40px;
+}
+.lazur-bg {
+  background-color: #23c6c8;
+  color: #ffffff;
+}
+.red-bg {
+  background-color: #ed5565;
+  color: #ffffff;
+}
+.navy-bg {
+  background-color: #1ab394;
+  color: #ffffff;
+}
+.yellow-bg {
+  background-color: #f8ac59;
+  color: #ffffff;
+}
+.purple-bg {
+  background-color: #cb59f8;
+  color: #ffffff;
+}
+.royal-bg {
+  background-color: #11139e;
+  color: #ffffff;
+}
+.widget {
+  border-radius: 5px;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+.widget h2, .widget h3 {
+  margin-top: 5px;
+  margin-bottom: 0;
+  border-bottom:1px dotted white;
+}
+.m-t-md {
+  margin-top: 20px;
+}
+body{
+    background:#f5f5f5;
+    margin-top:20px;
+}
+.card {
+    border: none;
+    -webkit-box-shadow: 1px 0 20px rgba(96,93,175,.05);
+    box-shadow: 1px 0 20px rgba(96,93,175,.05);
+    margin-bottom: 30px;
+}
+.table th {
+    font-weight: 500;
+    color: #827fc0;
+}
+.table thead {
+    background-color: #f3f2f7;
+}
+.table>tbody>tr>td, .table>tfoot>tr>td, .table>thead>tr>td {
+    padding: 14px 12px;
+    vertical-align: middle;
+}
+.table tr td {
+    color: #8887a9;
+}
+.thumb-sm {
+    height: 32px;
+    width: 32px;
+}
+.badge-soft-warning {
+    background-color: rgba(248,201,85,.2);
+    color: #f85555;
+}
+.badge {
+    font-weight: 500;
+}
+.badge-soft-primary {
+    background-color: rgba(96,93,175,.2);
+    color: #3c39d4;
+}
+.badge-soft-running {
+    background-color: rgba(96,93,175,.2);
+    color: #13b135;
+}
+ul {
+    list-style: none;
+    display: flex;
+    margin-bottom: 0
+}
+.social-icon {
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 7px;
+    margin-right: 11px;
+    cursor: pointer
+}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+.social-twitter {
+    background-color: #55acee
+}
+.social-facebook {
+    background-color: #3b5999
+}
+.social-linkedin {
+    background-color: #0077B5
+}
+.social-google {
+    background-color: #dd4b39
+}
+.social-instagram {
+    background-color: #dd4b39
+}
+.social-icon i {
+    transition: 0.4s all
+}
 </style>

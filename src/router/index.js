@@ -19,7 +19,7 @@ export default new Router({
       component: reset
     },
     {
-      path: '/  ',
+      path: '/',
       name: 'home',
       component: home
     },

@@ -2,7 +2,7 @@
 <div class="container-fluid">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
  <nav class="navbar navbar-expand-lg navbar-dark bg-mine" style="padding-top:30px:">
-  <a class="navbar-brand disabled" href="" style="color:#ffdb58;">WiseFex Investments</a>
+  <a class="navbar-brand disabled" href="" style="color:#ffdb58;">Horizon Investments</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -11,7 +11,7 @@
  <div class="text-center text-secondary">
     DONT FORGET TO REFFER FRIENDS
     </div>
-<div class="container">
+<div class="container-fluid">
 <div class="row align-items-center ">
     <div class="col-lg-12">
         <div>
@@ -30,7 +30,7 @@
          <input type="password" class=" text-center" placeholder="************" name="password" v-model="form.Password" required>
       </div>
       <button class="cta-btn"  type="button" @click="submit()" >Log In</button>
-      <a class="forget-pass" href="#">Forgot password?</a>
+      <a class="text-success" href="resetpass"><router-link to="/resetpass">Forgot password?</router-link></a>
    </form>
 </div>
         </div>

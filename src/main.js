@@ -35,13 +35,13 @@ Vue.use(Vuex)
 Vue.use(VueMaterial)
 Vue.config.productionTip = false
 var firebaseConfig = {
-  apiKey: 'AIzaSyBV9CYlrp2RZqTSpSt0nPHHRYTI8mq8YGY',
-  authDomain: 'wise-fex.firebaseapp.com',
-  projectId: 'wise-fex',
-  storageBucket: 'wise-fex.appspot.com',
-  messagingSenderId: '1027087323521',
-  appId: '1:1027087323521:web:2b1a4a769248bd0b649880',
-  measurementId: 'G-E1E70NVLPY'
+  apiKey: 'AIzaSyB6wVfaBipavCfL_h4bHIFFAHO_dlga7Bo',
+  authDomain: 'horizoninvestors-3a7d4.firebaseapp.com',
+  projectId: 'horizoninvestors-3a7d4',
+  storageBucket: 'horizoninvestors-3a7d4.appspot.com',
+  messagingSenderId: '856885748509',
+  appId: '1:856885748509:web:e086a68abd2289263937f4',
+  measurementId: 'G-V8KPCK0X1T'
 }
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig)

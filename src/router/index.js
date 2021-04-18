@@ -7,10 +7,22 @@ import dash from '../components/dashboard.vue'
 import hello from '../components/HelloWorld.vue'
 import admin from '../components/admin.vue'
 import search from '../components/localdbsearch.vue'
+import home from '../components/home.vue'
+import reset from '../components/resetpass.vue'
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/resetpass',
+      name: 'resetpass',
+      component: reset
+    },
+    {
+      path: '/  ',
+      name: 'home',
+      component: home
+    },
     {
       path: '/search',
       name: 'search',
@@ -32,7 +44,7 @@ export default new Router({
       component: reg
     },
     {
-      path: '/',
+      path: '/login',
       name: 'login',
       component: login
     },
